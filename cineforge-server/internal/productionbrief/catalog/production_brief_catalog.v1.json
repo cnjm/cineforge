@@ -1,0 +1,38 @@
+{
+  "schema_version": "production_brief_catalog.v1",
+  "catalog_version": "2026.07.19",
+  "content_types": [
+    {"value": "animated_drama", "label": "动漫短剧", "default_style_id": null},
+    {"value": "live_action_drama", "label": "真人短剧", "default_style_id": "live_action_cinematic"},
+    {"value": "hybrid_drama", "label": "动真结合", "default_style_id": null}
+  ],
+  "delivery_aspect_ratios": [
+    {"value": "9:16", "label": "竖屏 9:16", "suggested_duration_seconds": 120, "opening_hook_seconds": 3, "rhythm_multiplier": 0.85},
+    {"value": "16:9", "label": "横屏 16:9", "suggested_duration_seconds": 180, "opening_hook_seconds": 5, "rhythm_multiplier": 1.0}
+  ],
+  "rhythm_profiles": [
+    {"profile_id": "cn_drama", "label": "中国大陆剧", "base_shot_seconds": 6, "camera_rules": ["因果清楚", "对白覆盖完整", "反应镜头明确"]},
+    {"profile_id": "western_drama", "label": "美剧/欧美类型剧", "base_shot_seconds": 5, "camera_rules": ["动作与信息驱动", "快速进出场", "动机性运镜"]},
+    {"profile_id": "kr_drama", "label": "韩剧", "base_shot_seconds": 7, "camera_rules": ["情绪递进", "近景反应", "缓慢推进"]},
+    {"profile_id": "jp_drama", "label": "日剧", "base_shot_seconds": 8, "camera_rules": ["稳定构图", "表演留白", "克制运镜"]},
+    {"profile_id": "sea_drama", "label": "东南亚剧", "base_shot_seconds": 6, "camera_rules": ["强情绪转折", "直接反应", "突出冲突节点"]}
+  ],
+  "cultural_contexts": [
+    {"context_code": "CN_CONTEMPORARY", "name": "中国现代", "region": "CN-mainland", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "cn_drama"},
+    {"context_code": "CN_REPUBLIC", "name": "中国民国", "region": "CN-mainland", "era": "republican", "world_type": "real_world", "narrative_grammar": "cn_drama"},
+    {"context_code": "CN_ANCIENT", "name": "中国古代", "region": "CN", "era": "ancient", "world_type": "real_world", "narrative_grammar": "cn_drama"},
+    {"context_code": "KR_CONTEMPORARY", "name": "韩国现代", "region": "KR", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "kr_drama"},
+    {"context_code": "KR_HISTORICAL", "name": "韩国历史时期", "region": "KR", "era": "historical", "world_type": "real_world", "narrative_grammar": "kr_drama"},
+    {"context_code": "JP_CONTEMPORARY", "name": "日本现代", "region": "JP", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "jp_drama"},
+    {"context_code": "JP_HISTORICAL", "name": "日本历史时期", "region": "JP", "era": "historical", "world_type": "real_world", "narrative_grammar": "jp_drama"},
+    {"context_code": "US_CONTEMPORARY", "name": "美国现代", "region": "US", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "western_drama"},
+    {"context_code": "UK_CONTEMPORARY", "name": "英国现代", "region": "UK", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "western_drama"},
+    {"context_code": "WESTERN_HISTORICAL", "name": "西方历史时期", "region": "western", "era": "historical", "world_type": "real_world", "narrative_grammar": "western_drama"},
+    {"context_code": "TH_CONTEMPORARY", "name": "泰国现代", "region": "TH", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "sea_drama"},
+    {"context_code": "VN_CONTEMPORARY", "name": "越南现代", "region": "VN", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "sea_drama"},
+    {"context_code": "ID_CONTEMPORARY", "name": "印度尼西亚现代", "region": "ID", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "sea_drama"},
+    {"context_code": "PH_CONTEMPORARY", "name": "菲律宾现代", "region": "PH", "era": "contemporary", "world_type": "real_world", "narrative_grammar": "sea_drama"},
+    {"context_code": "EASTERN_FICTIONAL", "name": "架空东方", "region": "eastern", "era": "fictional", "world_type": "fictional_history", "narrative_grammar": "cn_drama"},
+    {"context_code": "WESTERN_FICTIONAL", "name": "架空西方", "region": "western", "era": "fictional", "world_type": "fictional_history", "narrative_grammar": "western_drama"}
+  ]
+}

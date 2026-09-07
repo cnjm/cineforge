@@ -1,0 +1,17 @@
+# CineForge agent 子模块依赖（P4b 从 legacy backend/requirements.txt 裁剪：
+# 去掉 alembic/grpcio/protobuf/PyJWT/python-multipart —— schema 归 goose，
+# gRPC 走 Go 单体，闭包无 jwt/表单依赖）。版本与 legacy 对齐锁定。
+fastapi==0.115.14
+uvicorn[standard]==0.35.0
+pydantic-settings==2.10.1
+SQLAlchemy[asyncio]==2.0.41
+asyncpg==0.30.0
+redis==6.2.0
+minio==7.2.15
+langgraph==0.4.8
+langgraph-checkpoint-postgres==2.0.25
+psycopg[binary,pool]==3.2.9
+celery==5.5.3
+httpx==0.28.1
+jsonschema==4.24.0
+json-repair==0.61.5

@@ -1,0 +1,21 @@
+﻿/* styles.css - Split into modular CSS files under styles/ */
+/* Import order matters for CSS cascade */
+
+@import url('styles/base.css');              /* 基础样式：CSS 变量、全局重置、body/输入元素默认样式 */
+@import url('styles/layout.css');            /* 应用布局：.app 网格、侧边栏、导航菜单、通知弹窗、模态框容器 */
+@import url('styles/project-cards.css');     /* 项目卡片：项目/任务卡片、表单、上传区域、项目元信息 */
+@import url('styles/task-board.css');        /* 任务看板：审阅提示、任务看板、Prompt 编辑器 */
+@import url('styles/assets.css');            /* 资产管理：资产工具栏、预览、链接网格、表格 */
+@import url('styles/admin.css');             /* 管理后台：admin 布局、KPI 指标卡、登录页 */
+@import url('styles/project-detail.css');    /* 项目详情：详情布局、模块导航、成员管理（旧版分集工作台样式，作对照参考）*/
+@import url('styles/episode-workbench.css'); /* 分集工作台：迁移自 legacy-ui 的分集列表、分集详情、剧本弹框样式 */
+@import url('styles/review-grid.css');       /* 审阅网格：草稿详情、审阅项、导入工具栏 */
+@import url('styles/production.css');        /* 制作设置：剧本导入、分段控件、制作简报、影响地图 */
+@import url('styles/asset-review.css');      /* 资产审阅：资产审阅表、方案模态框、完成模态框、场景关系 */
+@import url('styles/production-prompts.css');/* 制作 Prompt：Prompt 详情、修订列表、修订对比 */
+@import url('styles/reading-report.css');    /* 阅读报告：剧本原文预览、分镜表、制作备注 */
+@import url('styles/reading-review.css');    /* 阅读评估：阅读确认、结果评估、情感时间线、风险列表 */
+@import url('styles/task-assignment.css');   /* 任务分配：任务分配、制作批次、审阅确认 */
+@import url('styles/pipeline.css');          /* 制作管线：管线步骤器、导演审阅工作台 */
+@import url('styles/project-settings.css');  /* 项目设置弹框：创建/编辑项目弹框（ProjectSettingsModal） */
+@import url('styles/confirm-modal.css');     /* 确认弹框：通用确认弹框（ConfirmModal） */

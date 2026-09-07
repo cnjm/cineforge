@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CINEFORGE · AI 短剧工业化生产平台 — 投资计划书</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #101018;
+    --bg3: #16161f;
+    --line: #262634;
+    --fg: #eef0f5;
+    --muted: #9aa0b4;
+    --dim: #62687d;
+    --gold: #d9a94e;
+    --gold-hi: #f0c872;
+    --amber: #e8a33d;
+    --accent: #6ea8ff;
+    --green: #5fd39a;
+    --red: #ff7a7a;
+    --max: 980px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(1000px 500px at 20% 0%, rgba(217,169,78,0.13), transparent 60%),
+      radial-gradient(900px 500px at 85% 100%, rgba(110,168,255,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .brand {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    letter-spacing: 9px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 42px;
+  }
+  .brand i { font-style: normal; color: var(--dim); letter-spacing: 3px; }
+  h1 {
+    position: relative; z-index: 1;
+    font-size: clamp(34px, 6vw, 62px);
+    line-height: 1.14;
+    font-weight: 800;
+    letter-spacing: 1px;
+    max-width: 20em;
+  }
+  h1 .g { color: var(--gold); }
+  .sub {
+    position: relative; z-index: 1;
+    margin-top: 26px;
+    font-size: clamp(16px, 2.2vw, 21px);
+    color: var(--muted);
+    max-width: 36em;
+  }
+  .tag {
+    position: relative; z-index: 1;
+    margin-top: 46px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg2);
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-size: 14px;
+    color: var(--fg);
+  }
+  .tag b { color: var(--gold); font-weight: 700; }
+  .scroll-hint {
+    position: relative; z-index: 1;
+    margin-top: 90px;
+    color: var(--dim);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 84px 0; border-top: 1px solid var(--bg3); }
+  .kicker {
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  h2 em { font-style: normal; color: var(--muted); font-weight: 500; font-size: .55em; letter-spacing: 2px; }
+  .lead { color: var(--muted); font-size: 17px; max-width: 46em; margin-bottom: 34px; }
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 820px) { .g2,.g3,.g4 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 22px 20px;
+  }
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: .5px; }
+  .card p { color: var(--muted); font-size: 14.5px; }
+  .num {
+    color: var(--gold); font-weight: 800; font-size: 14px; letter-spacing: 2px;
+  }
+
+  /* Pain points */
+  .pain .card { border-left: 3px solid var(--red); }
+  .pain .card h3 { color: #ffb3b3; }
+
+  /* ---------- Pipeline ---------- */
+  .pipe { margin: 10px 0 6px; }
+  .pipe-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    position: relative;
+  }
+  @media (max-width: 820px) { .pipe-row { grid-template-columns: 1fr; } }
+  .step {
+    background: var(--bg3);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 16px 14px;
+    position: relative;
+    height: 100%;
+  }
+  .step .s-no {
+    display: inline-block;
+    font-size: 11px; font-weight: 800; letter-spacing: 2px;
+    color: var(--bg);
+    background: var(--gold);
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 12px;
+  }
+  .step h4 { font-size: 16px; margin-bottom: 6px; }
+  .step p { font-size: 13.5px; color: var(--muted); }
+  .step .out {
+    margin-top: 12px;
+    font-size: 12px; color: var(--dim);
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+  .step .out b { color: var(--green); font-weight: 600; }
+  .gate {
+    text-align: center;
+    margin: 12px 0 4px;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .gate i {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    vertical-align: -1px;
+    margin-right: 7px;
+  }
+
+  /* Checkpoint band */
+  .band {
+    background: linear-gradient(135deg, rgba(217,169,78,0.12), rgba(217,169,78,0.03));
+    border: 1px solid rgba(217,169,78,0.35);
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .band .fm { font-size: 15px; color: var(--fg); font-weight: 600; white-space: nowrap; }
+  .band p { color: var(--muted); font-size: 14px; }
+
+  /* Flow: submission -->
+  .pflow { display: flex; align-items: stretch; gap: 12px; margin: 8px 0; flex-wrap: wrap; }
+  .pnode {
+    flex: 1 1 150px;
+    background: var(--bg3);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .pnode b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .pnode small { color: var(--dim); font-size: 12px; }
+  .parrow { display: flex; align-items: center; color: var(--gold); font-size: 20px; padding: 0 2px; }
+
+  /* Feature cards */
+  .feat h3 { display: flex; align-items: center; gap: 8px; }
+  .feat .ico { font-size: 18px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: center; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+
+  /* Quote / closing */
+  .closing {
+    text-align: center;
+    padding: 120px 0;
+    position: relative;
+  }
+  .closing h2 { font-size: clamp(28px, 5vw, 46px); }
+  .cta {
+    margin-top: 40px;
+    display: inline-block;
+    color: #0a0a0f;
+    background: var(--gold);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 14px 34px;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  footer { border-top: 1px solid var(--bg3); padding: 30px 0 46px; color: var(--dim); font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .dim { color: var(--dim); }
+  .small { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap">
+    <div class="brand">CINEFORGE <i>— AI SHORT-DRAMA PRODUCTION PLATFORM</i></div>
+    <h1>人人都有自己的<br><span class="g">短剧制片厂</span></h1>
+    <p class="sub">你负责讲故事，剩下的交给 CINEFORGE——剧本进，分镜与制作任务出。过去需要一整个剧组的活，现在一个人就能开厂；一部短剧，从"碰运气的作品"变成"人人都能做出的产品"。</p>
+    <div class="tag">定位：<b>AI 短剧工业化生产平台</b> · 起步跑通一条质量可控的制片流水线，资产复用与批量投产构成规模化第二曲线</div>
+    <div class="scroll-hint">⤓ SCROLL</div>
+  </div>
+</div>
+
+<!-- ================= OPPORTUNITY / PAIN ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Why now</div>
+    <h2>AI 短剧的红利，卡在三道门槛 <em>PAIN POINTS</em></h2>
+    <div class="grid g3 pain">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>AI 出东西很快，但质量不稳定</h3>
+        <p>同一段剧本，模型效果时好时坏；没有一个环节敢说"一次到位"。质量一旦失控，返工比手作还贵。</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>生产过程不可见，进度不可控</h3>
+        <p>编剧、美术、剪辑各自为战，中间产物散落在聊天窗口和网盘里。项目到底做到哪一步，没有人能一眼看清。</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>资产用完即弃，没有积累</h3>
+        <p>每个人物、场景、分镜都是独立的临时文件。第二部剧没有因为第一部更便宜——规模效应不存在。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTION OVERVIEW ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">The answer</div>
+    <h2>一条流水线，三件确定的事 <em>WHAT WE DO</em></h2>
+    <p class="lead">CINEFORGE 把一部 AI 短剧的制作分解成一条有门禁的流水线。AI 负责产能，人工只负责关键决策，系统负责纪律与沉淀。</p>
+    <div class="pipe">
+      <div class="pipe-row">
+        <div class="step">
+          <span class="s-no">01</span>
+          <h4>剧本围读</h4>
+          <p>先读透剧本再动土：只产出故事梗概、人物脉络与风格倾向，不产资产、不产候选。</p>
+          <div class="out">产出 <b>阅读报告</b></div>
+        </div>
+        <div class="step">
+          <span class="s-no">02</span>
+          <h4>资产拆解</h4>
+          <p>从剧本抽取正式资产：人物、场景、道具（含服装）、配乐（音乐 + 声音档案）。统一编号、规范化字段。</p>
+          <div class="out">产出 <b>正式资产清单</b></div>
+        </div>
+        <div class="step">
+          <span class="s-no">03</span>
+          <h4>提示词生成</h4>
+          <p>为每个资产调用专用 Prompt Skill 生成高质量提示词；允许重生成，但重生成必须二次确认。</p>
+          <div class="out">产出 <b>资产提示词</b></div>
+        </div>
+        <div class="step">
+          <span class="s-no">04</span>
+          <h4>脚本段拆分</h4>
+          <p>把剧本拆成可追溯的脚本段：原文、台词行、时长预算、正式引用与制作说明。</p>
+          <div class="out">产出 <b>可制作脚本段</b></div>
+        </div>
+        <div class="step">
+          <span class="s-no">05</span>
+          <h4>分镜拆解</h4>
+          <p>父分镜 10–15 秒，镜中分镜为内部硬切；绝不断开台词原文，产出分镜母版。</p>
+          <div class="out">产出 <b>分镜母版</b></div>
+        </div>
+      </div>
+      <div class="gate"><i></i>每一步：AI 初稿 → 自动归一化 → 人工检查点确认 → 解锁下一步</div>
+      <div class="band">
+        <span class="fm">质量为王</span>
+        <p>五步之间由<strong>人工检查点</strong>门禁控制：前一步未确认，下一步保持锁定。质量决策永远交给人，AI 只是产能放大器。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTION FLOW ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">After storyboard</div>
+    <h2>从分镜确认，到可上线任务 <em>PRODUCTION LOOP</em></h2>
+    <p class="lead">分镜母版确认后自动进入生产环节——每一镜成为一条制作任务，交给制作员；产出以多候选的方式交给导演决策。</p>
+
+    <div class="pflow">
+      <div class="pnode"><b>分镜确认</b><small>已确认母版进入生产</small></div>
+      <div class="parrow">→</div>
+      <div class="pnode"><b>任务分发</b><small>每镜一条任务 + 分发锁防重</small></div>
+      <div class="parrow">→</div>
+      <div class="pnode"><b>多候选制作</b><small>一镜可上传多张图/多个媒体候选</small></div>
+      <div class="parrow">→</div>
+      <div class="pnode"><b>批量提交</b><small>同批候选整批进入导演待审</small></div>
+    </div>
+    <div class="pflow">
+      <div class="pnode"><b>导演审核</b><small>选中一个或多个，指定唯一主母版</small></div>
+      <div class="parrow">→</div>
+      <div class="pnode" style="border-color:var(--green)"><b>物化资产版本</b><small>主/备用母版沉淀进正式资产库</small></div>
+      <div class="parrow">→</div>
+      <div class="pnode"><b>任务完成</b><small>成果可被下游复用</small></div>
+    </div>
+
+    <div class="band" style="border-color:rgba(255,122,122,0.35); background:linear-gradient(135deg,rgba(255,122,122,0.10),transparent)">
+      <span class="fm" style="color:#ffb3b3">也可以退回</span>
+      <p>导演/admin 可发起 <strong>rework</strong>：必须写明原因并二次确认，撤销选中与当前版本，任务回到重做队列。历史批准版本只读、永远不能反向覆盖。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASSET FLYWHEEL ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Second curve</div>
+    <h2>资产复用飞轮：越生产，越便宜 <em>FLYWHEEL</em></h2>
+    <p class="lead">正式资产不是临时文件，而是带版本、带引用、带审计的资产库。人物、场景、道具、配乐、分镜母版全部沉淀——下一部剧站在上一部剧的肩膀上。</p>
+    <div class="band">
+      <span class="fm">一句话</span>
+      <p>第一阶段，CINEFORGE 是一条跑得稳的流水线；第二阶段，同一个引擎同时跑多个项目，<strong>资产复用 + 批量投产</strong>让单位成本随产量下降——这是内容供给端真正能建立壁垒的地方。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLATFORM MODULES ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Product surface</div>
+    <h2>后台功能模板 <em>PLATFORM MODULES</em></h2>
+    <p class="lead">六块能力，覆盖从剧本到成片的全周期。</p>
+    <div class="grid g3 feat">
+      <div class="card"><h3><span class="ico">📦</span>项目管理</h3><p>剧本上传、多版本管理、分集结构。每个制作对象都绑定 <small class="dim">项目 + 分集 + 剧本版本</small>，从头到尾可追溯。</p></div>
+      <div class="card"><h3><span class="ico">🛠️</span>五步拆解工作台</h3><p>每条流水线状态一眼可见：待执行 / 运行中 / 待确认 / 已确认 / 失败可重试。人工检查点一键放行或退回。</p></div>
+      <div class="card"><h3><span class="ico">📊</span>生产看板</h3><p>项目级健康度聚合：分镜数、资产进度、任务完成率、逾期任务。管理层不看细节也知全局。</p></div>
+      <div class="card"><h3><span class="ico">🎬</span>任务与审核</h3><p>制作员多候选上传、批量提交、导演批量审核、rework 闭环。任务分发锁 + 幂等提交防重防错。</p></div>
+      <div class="card"><h3><span class="ico">🏛️</span>正式资产库</h3><p>人物/场景/道具/配乐/分镜母版的正式档案与版本查看，主/备用母版区分，资产引用可追溯。</p></div>
+      <div class="card"><h3><span class="ico">🛡️</span>管理台</h3><p>Agent 运行日志、员工角色权限（导演/美术/剪辑/编辑/管理员）、全量操作审计日志。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY DIFFERENTIATION ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Moat</div>
+    <h2>技术差异化：把不确定性关进笼子 <em>WHY WE WIN</em></h2>
+    <div class="grid g3">
+      <div class="card">
+        <div class="num">A</div>
+        <h3>AI 产能 × 人工检查点</h3>
+        <p>模型只负责"产出更多候选"，质量决策永远在人。五道检查点把 AI 的随机性降到可接受范围。</p>
+      </div>
+      <div class="card">
+        <div class="num">B</div>
+        <h3>确定性后台兜底</h3>
+        <p>资产匹配、权限、版本号、任务创建、时长与引用校验全部由<strong>确定性代码</strong>执行——生产纪律不由模型自由发挥。</p>
+      </div>
+      <div class="card">
+        <div class="num">C</div>
+        <h3>全链路版本可追溯</h3>
+        <p>每一次 Agent 运行 → 归一化 → 人工确认 → 审核都留痕；状态单向流动，随时可回滚、可审计。</p>
+      </div>
+    </div>
+    <div class="split" style="margin-top:34px">
+      <div>
+        <div class="kicker">How it works</div>
+        <h2 style="font-size:24px">一份数据的生命力</h2>
+        <p class="small">每一次 Agent 产出都不是终点，而是被规范化的中间产物：从 AI 原始输出，到归一化展示，再到人工钉下"最终版"，才允许进入下游。前端永远只消费规范数据，不直接读模型原始 JSON。你看到的每一帧，都知道它从哪来、谁确认过。</p>
+      </div>
+      <div class="card" style="font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:13px;color:var(--muted);letter-spacing:.5px">
+        <div>AI 原始 → <span style="color:var(--gold)">agent_runs / raw</span></div>
+        <div>&nbsp;&nbsp;↓ 自动归一化（schema 校验）</div>
+        <div>归一化 → <span style="color:var(--gold)">normalized</span></div>
+        <div>&nbsp;&nbsp;↓ 人工修订确认</div>
+        <div>终版 → <span style="color:var(--gold)">final</span> ← 唯一下游数据源</div>
+        <div>&nbsp;&nbsp;↓</div>
+        <div>Asset / 制作任务 / 母版</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<div class="closing wrap">
+  <div class="kicker">CINEFORGE</div>
+  <h2>一条流水线<br>稳定地生产 AI 短剧</h2>
+  <p class="lead" style="margin:18px auto 0; max-width:26em">不是又一个 AI 玩具，而是把 AI 短剧当成一门可以规模化的生意来做的生产基础设施。</p>
+  <div class="cta" style="cursor:default">让天下没有难开的制片厂。</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>CINEFORGE · AI 短剧工业化生产平台 · 投资计划书（产品与技术版）</div>
+    <div>2026 · 内部材料</div>
+  </div>
+</footer>
+
+</body>
+</html>

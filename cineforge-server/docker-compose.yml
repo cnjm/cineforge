@@ -1,0 +1,46 @@
+# CineForge 后端本地开发底座：PostgreSQL 16 + pgvector、Redis 7、MinIO
+# 用法：docker compose up -d   （本地 Go 单体直接跑在宿主机，连本底座）
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: cineforge-postgres
+    environment:
+      POSTGRES_USER: cineforge
+      POSTGRES_PASSWORD: ${CINEFORGE_DB_PASSWORD:-CHANGE_ME}
+      POSTGRES_DB: cineforge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cineforge -d cineforge"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: cineforge-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  minio:
+    image: minio/minio
+    container_name: cineforge-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-cineforge}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-CHANGE_ME}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - miniodata:/data
+
+volumes:
+  pgdata:
+  redisdata:
+  miniodata:

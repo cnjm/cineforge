@@ -1,0 +1,24 @@
+# 二进制与构建产物
+bin/
+dist/
+cineforge-server
+*.exe
+
+# 环境变量（.env.example 为模板可入库；.env 为本地/私有）
+.env
+.env.*
+!.env.example
+
+# Go
+coverage.out
+*.test
+
+# Python agent
+agent/.venv/
+agent/__pycache__/
+agent/**/*.pyc
+agent/*.egg-info/
+
+# 日志与系统
+*.log
+.DS_Store

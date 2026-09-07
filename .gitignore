@@ -1,0 +1,8 @@
+# 根级忽略（h5 / server 子目录已有各自的 .gitignore 覆盖其局部产物）
+# 单仓库：cineforge-h5/、cineforge-server/ 均被根仓库统一跟踪
+
+# macOS
+.DS_Store
+
+# 日志
+*.log

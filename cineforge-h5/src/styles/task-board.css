@@ -1,0 +1,122 @@
+/* Module: task-board | Extracted from styles.css | Lines 931-1045 */
+
+.review-hints {
+  background: #fff8e8;
+  border: 1px solid #ffe0a3;
+  border-radius: 10px;
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 10px 12px;
+}
+
+.review-hints.ok {
+  background: #eefbf3;
+  border-color: #b7e4c7;
+}
+
+.review-hints span {
+  color: #8a5200;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.review-hints.ok span {
+  color: #166534;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.task-board {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.lane {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  min-height: 310px;
+  padding: 12px;
+}
+
+.lane-title {
+  align-items: center;
+  display: flex;
+  font-weight: 800;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.task-card {
+  border-left: 4px solid var(--pink);
+  margin-bottom: 10px;
+  padding: 13px;
+}
+
+.task-card.mint { border-left-color: var(--mint); }
+.task-card.sun { border-left-color: var(--sun); }
+.task-card.sky { border-left-color: var(--sky); }
+.task-card.red { border-left-color: var(--danger); }
+
+.task-card strong { display: block; margin-bottom: 5px; }
+.task-card p { color: var(--muted); font-size: 12px; line-height: 1.55; margin: 0 0 9px; }
+
+.chip-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.prompt-box {
+  background: #21162d;
+  border-radius: 10px;
+  color: #f7efff;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 10px 0;
+  max-height: 138px;
+  overflow: auto;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+.prompt-editor {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0;
+}
+
+.prompt-editor span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.prompt-editor textarea {
+  background: #21162d;
+  border-color: #3b2a4e;
+  color: #f7efff;
+  font-size: 12px;
+  line-height: 1.65;
+  min-height: 132px;
+}
+
+.admin-app[data-theme="light"] .prompt-editor textarea {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #111827;
+}

@@ -1,0 +1,77 @@
+﻿/* Module: confirm-modal | Extracted from styles.css | Lines 13251-13327 */
+/* ======================== ConfirmModal ========================
+ * 通用确认弹框：视觉与 ProjectSettingsModal 面板保持一致；
+ * 背景/边框/按钮直接复用 admin 主题 token，深浅色自适应。
+ */
+.confirm-modal-backdrop {
+  z-index: 9999; /* 全局最高层级，确保覆盖所有弹框/菜单/tooltip */
+  background: rgba(3, 7, 18, 0.45);
+}
+
+.admin-app[data-theme="light"] .confirm-modal-backdrop {
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.confirm-modal {
+  width: min(520px, calc(100vw - 32px));
+  max-width: 520px;
+  background: var(--admin-panel);
+  color: var(--admin-text);
+  border: 1px solid var(--admin-line);
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-app[data-theme="light"] .confirm-modal {
+  background: #ffffff;
+  color: #111827;
+  border-color: #d9dee8;
+  box-shadow: 0 18px 48px rgba(18, 28, 48, 0.16);
+}
+
+.confirm-modal__body {
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.confirm-modal__title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--admin-text);
+  letter-spacing: 0.2px;
+}
+
+.confirm-modal__desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--admin-subtext);
+}
+
+.admin-app[data-theme="light"] .confirm-modal__desc {
+  color: #6b7385;
+}
+
+.confirm-modal__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 24px 20px;
+  border-top: 1px solid var(--admin-line);
+}
+
+.admin-app[data-theme="light"] .confirm-modal__foot {
+  border-top-color: rgba(15, 23, 42, 0.08);
+}
+
+/* 预留 danger 强调色（目前 info/danger 共用，后续删除确认场景可补红色） */
+.confirm-modal--danger .confirm-modal__title {
+  color: #ff5757;
+}

@@ -1,0 +1,1056 @@
+/* Module: asset-library-v2 | 资产库模块（迁移自 legacy-ui admin-dashboard.css）
+ * 作用域：所有规则均以 .admin-app 前缀限定，避免与现有 .admin-project-tile 等样式冲突。
+ * 主题：默认深色（与 .admin-app 默认 data-theme="dark" 对齐）；浅色主题通过
+ *       .admin-app[data-theme="light"] 选择器覆盖。
+ * 说明：媒体预览面（.asset-library-preview / .asset-library-lightbox__media /
+ *       .asset-version-filmstrip）使用纯黑底色，是「影院式」媒体查看面，
+ *       深浅主题下均保持深色，符合视频/图片查看器的常规预期。
+ */
+
+/* ===== Asset library: project list page (公司资产库入口) ===== */
+.admin-app .asset-library-projects.admin-projects-page {
+  gap: 12px;
+}
+
+.admin-app .asset-library-projects__title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.admin-app .asset-library-projects__desc {
+  margin: 0;
+  color: var(--admin-muted);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ===== Asset library: project asset page (项目资产详情) ===== */
+.admin-app .asset-library-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-app .asset-library-page__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-app .asset-library-page__head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-title);
+  flex: 0 0 auto;
+}
+
+.admin-app .asset-library-page__head-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.admin-app .asset-library-project-search {
+  min-width: min(320px, 70vw);
+  width: min(320px, 70vw);
+}
+
+.admin-app .asset-library-page__head-tools > span {
+  color: var(--admin-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ===== Asset library: company category tabs ===== */
+.admin-app .asset-company-tabs {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--admin-line);
+  gap: 2px;
+  margin-bottom: 4px;
+  overflow-x: auto;
+}
+
+.admin-app .asset-company-tabs button {
+  flex: 0 0 auto;
+  justify-content: center;
+  color: var(--admin-muted);
+  border-bottom-width: 2px;
+  min-height: 36px;
+  min-width: 0;
+  padding: 6px 14px;
+}
+
+.admin-app .asset-company-tabs button span {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.admin-app .asset-company-tabs button strong {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--admin-muted);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  min-width: 20px;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+.admin-app .asset-company-tabs button.active {
+  border-bottom-color: var(--admin-accent);
+  color: var(--admin-text);
+}
+
+.admin-app .asset-company-tabs button.active strong {
+  background: rgba(28, 109, 249, 0.14);
+  color: var(--admin-accent);
+}
+
+.admin-app .asset-company-tabs button.character.active {
+  border-bottom-color: var(--admin-accent);
+  color: var(--admin-accent);
+}
+
+.admin-app .asset-company-tabs button.character.active strong {
+  background: rgba(28, 109, 249, 0.14);
+  color: var(--admin-accent);
+}
+
+.admin-app .asset-company-tabs button.scene.active {
+  border-bottom-color: #3dd68c;
+  color: #3dd68c;
+}
+
+.admin-app .asset-company-tabs button.scene.active strong {
+  background: rgba(61, 214, 140, 0.14);
+  color: #3dd68c;
+}
+
+.admin-app .asset-company-tabs button.prop.active {
+  border-bottom-color: #e2c56a;
+  color: #e2c56a;
+}
+
+.admin-app .asset-company-tabs button.prop.active strong {
+  background: rgba(226, 197, 106, 0.14);
+  color: #e2c56a;
+}
+
+.admin-app .asset-company-tabs button.audio.active {
+  border-bottom-color: #7dd3fc;
+  color: #7dd3fc;
+}
+
+.admin-app .asset-company-tabs button.audio.active strong {
+  background: rgba(56, 189, 248, 0.14);
+  color: #7dd3fc;
+}
+
+.admin-app .asset-company-tabs button.video.active {
+  border-bottom-color: #b69cff;
+  color: #b69cff;
+}
+
+.admin-app .asset-company-tabs button.video.active strong {
+  background: rgba(167, 139, 250, 0.14);
+  color: #b69cff;
+}
+
+.admin-app .asset-company-grid {
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+}
+
+/* ===== Asset library: card (资产卡片) ===== */
+.admin-app .asset-library-card {
+  position: relative;
+  background: var(--admin-panel);
+  border: 1px solid var(--admin-line);
+  border-left-width: 1px;
+  border-radius: 10px;
+  box-shadow: none;
+  grid-template-columns: 168px minmax(0, 1fr);
+  min-height: 168px;
+  overflow: hidden;
+}
+
+.admin-app .asset-library-card.is-scoped {
+  grid-template-columns: 148px minmax(0, 1fr);
+}
+
+.admin-app .asset-library-card:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--admin-line);
+}
+
+.admin-app .asset-library-card.character,
+.admin-app .asset-library-card.scene,
+.admin-app .asset-library-card.prop,
+.admin-app .asset-library-card.audio,
+.admin-app .asset-library-card.video {
+  border-left-color: var(--admin-line);
+}
+
+/* code badge: 右上角业务编码徽标 */
+.admin-app .asset-library-code-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 0 0 0 8px;
+  background: #1e2f24;
+  color: #65e39d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* preview area: 影院式媒体预览面（深浅主题均保持深色） */
+.admin-app .asset-library-preview {
+  position: relative;
+  background: #0f0f0f;
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 168px;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.admin-app .asset-library-preview > img,
+.admin-app .asset-library-preview > video,
+.admin-app .asset-library-preview > .asset-media-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+}
+
+.admin-app .asset-library-preview .asset-preview-open-surface {
+  z-index: 3;
+}
+
+.admin-app .asset-library-card.character .asset-library-preview,
+.admin-app .asset-library-card.scene .asset-library-preview,
+.admin-app .asset-library-card.prop .asset-library-preview,
+.admin-app .asset-library-card.audio .asset-library-preview,
+.admin-app .asset-library-card.video .asset-library-preview {
+  background: #0f0f0f;
+}
+
+/* current/version badges on the preview */
+.admin-app .asset-library-card .asset-current-badge,
+.admin-app .asset-library-card .asset-version-count {
+  top: 0;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 600;
+  min-height: 22px;
+  padding: 4px 8px;
+  background: #1e2f24;
+  color: #65e39d;
+}
+
+.admin-app .asset-library-card .asset-current-badge {
+  left: 0;
+  border-radius: 0 0 8px 0;
+}
+
+.admin-app .asset-library-card .asset-current-badge.fallback {
+  background: #1e2f24;
+  color: #65e39d;
+}
+
+.admin-app .asset-library-card .asset-version-count {
+  right: 0;
+  border-radius: 0 0 0 8px;
+}
+
+/* preview-open-surface: 透明点击层 */
+.asset-preview-open-surface {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.asset-preview-open-surface:focus-visible {
+  box-shadow: inset 0 0 0 3px #2b8b7c;
+  outline: 0;
+}
+
+/* preview-open: 悬停时显示的「放大」按钮 */
+.asset-preview-open {
+  align-items: center;
+  background: rgba(25, 34, 43, 0.78);
+  bottom: 7px;
+  color: #fff;
+  display: flex;
+  height: 27px;
+  justify-content: center;
+  left: 7px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.15s ease;
+  width: 27px;
+  z-index: 2;
+}
+
+.asset-library-preview:hover .asset-preview-open,
+.asset-preview-open-surface:focus-visible ~ .asset-preview-open {
+  opacity: 1;
+}
+
+/* preview-pagination: 缩略图翻页器 */
+.asset-preview-pagination {
+  align-items: center;
+  background: rgba(22, 29, 36, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 5px;
+  bottom: 7px;
+  color: #fff;
+  display: flex;
+  height: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 7px;
+  z-index: 3;
+}
+
+.asset-preview-pagination button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+}
+
+.asset-preview-pagination button:hover,
+.asset-preview-pagination button:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+  outline: 0;
+}
+
+.asset-preview-pagination span {
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 39px;
+  text-align: center;
+}
+
+/* card body: 右侧文本区 */
+.admin-app .asset-library-card-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--admin-panel);
+  gap: 8px;
+  padding: 12px 14px;
+  padding-right: 52px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.admin-app .asset-library-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.admin-app .asset-library-card-heading > div {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-width: 0;
+}
+
+.admin-app .asset-library-card-heading > div span {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--admin-muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+
+.admin-app .asset-library-card.character .asset-library-card-heading > div span {
+  background: rgba(28, 109, 249, 0.16);
+  color: var(--admin-accent);
+}
+
+.admin-app .asset-library-card.scene .asset-library-card-heading > div span {
+  background: rgba(61, 214, 140, 0.14);
+  color: #3dd68c;
+}
+
+.admin-app .asset-library-card.prop .asset-library-card-heading > div span {
+  background: rgba(226, 197, 106, 0.14);
+  color: #e2c56a;
+}
+
+.admin-app .asset-library-card.audio .asset-library-card-heading > div span {
+  background: rgba(56, 189, 248, 0.14);
+  color: #7dd3fc;
+}
+
+.admin-app .asset-library-card.video .asset-library-card-heading > div span {
+  background: rgba(167, 139, 250, 0.14);
+  color: #b69cff;
+}
+
+.admin-app .asset-library-card-heading h3 {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: var(--admin-title);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-app .asset-library-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--admin-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.admin-app .asset-library-card-meta > i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  flex: 0 0 auto;
+}
+
+.admin-app .asset-library-card-meta > span {
+  color: var(--admin-muted);
+}
+
+.admin-app .asset-library-card-facts dt {
+  color: var(--admin-aux);
+}
+
+.admin-app .asset-library-card-facts dd {
+  color: var(--admin-text);
+  font-weight: 500;
+}
+
+.admin-app .asset-library-description {
+  color: var(--admin-muted);
+  white-space: nowrap;
+}
+
+.admin-app .asset-library-card-footer {
+  border-top-color: var(--admin-line);
+  padding-top: 8px;
+  margin-top: 2px;
+}
+
+.admin-app .asset-library-card-footer > span {
+  color: var(--admin-muted);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.admin-app .asset-version-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.admin-app .asset-version-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-app .asset-library-empty {
+  color: var(--admin-muted);
+  border: 1px solid var(--admin-line);
+  border-radius: 8px;
+  background: var(--admin-panel);
+}
+
+/* ===== Asset media placeholder (媒体占位符：图标+文案) ===== */
+.admin-app .asset-media-placeholder {
+  align-items: center;
+  background: #0f0f0f;
+  color: #737373;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  justify-content: center;
+  min-height: 90px;
+  width: 100%;
+}
+
+.admin-app .asset-media-placeholder span {
+  font-size: 9px;
+}
+
+.admin-app .asset-media-placeholder.audio {
+  background: #0f0f0f;
+  color: #7dd3fc;
+  padding: 14px;
+}
+
+.admin-app .asset-media-placeholder.audio audio {
+  margin-top: 10px;
+  max-width: 520px;
+  width: min(90%, 520px);
+}
+
+/* ===== Version info bar (弹窗底部版本信息条) ===== */
+.admin-app .asset-version-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: 12px 16px;
+  border-top: 1px solid var(--admin-line);
+  background: #141414;
+}
+
+.admin-app .asset-version-info__main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.admin-app .asset-version-info strong {
+  color: var(--admin-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-app .asset-version-info__status {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #1e2f24;
+  color: #65e39d;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-app .asset-version-info small {
+  flex: 0 1 auto;
+  color: var(--admin-muted);
+  font-size: 11px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Version filmstrip (弹窗底部版本胶片条) ===== */
+.admin-app .asset-version-filmstrip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--admin-line);
+  background: #0d0d0d;
+}
+
+.admin-app .asset-version-filmstrip > button {
+  position: relative;
+  display: grid;
+  flex: 0 0 168px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--admin-line);
+  border-radius: 8px;
+  background: #161616;
+  color: var(--admin-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-app .asset-version-filmstrip > button:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.admin-app .asset-version-filmstrip > button.active {
+  border-color: var(--admin-accent);
+  box-shadow: inset 0 0 0 1px rgba(28, 109, 249, 0.35);
+  background: rgba(28, 109, 249, 0.08);
+}
+
+.admin-app .asset-version-filmstrip > button.primary:not(.active) {
+  border-color: rgba(101, 227, 157, 0.28);
+}
+
+.admin-app .asset-version-filmstrip__thumb {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.admin-app .asset-version-filmstrip img,
+.admin-app .asset-version-filmstrip video,
+.admin-app .asset-version-filmstrip .asset-media-placeholder {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+}
+
+.admin-app .asset-version-filmstrip__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-height: 18px;
+  padding: 0 6px;
+  border-radius: 0 0 0 6px;
+  background: #1e2f24;
+  color: #65e39d;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.admin-app .asset-version-filmstrip button > span {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px 10px;
+}
+
+.admin-app .asset-version-filmstrip button > span strong {
+  font-size: 12px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-app .asset-version-filmstrip button > span small {
+  color: var(--admin-muted);
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== Lightbox 基础结构（放大弹窗） ===== */
+.admin-app .review-center-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.admin-app .review-center-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.72);
+  cursor: pointer;
+}
+
+.admin-app .review-center-lightbox__panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(920px, 100%);
+  max-height: min(86vh, 820px);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #121212;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.admin-app .review-center-lightbox__panel > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-app .review-center-lightbox__panel > header strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.admin-app .review-center-lightbox__count {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  color: #a3a3a3;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.admin-app .review-center-lightbox__panel > header button {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin-app .review-center-lightbox__panel img,
+.admin-app .review-center-lightbox__panel video,
+.admin-app .review-center-lightbox__panel .asset-media-placeholder {
+  display: block;
+  width: 100%;
+  max-height: calc(86vh - 72px);
+  object-fit: contain;
+  border-radius: 8px;
+  background: #0a0a0a;
+}
+
+.admin-app .review-center-lightbox__panel .asset-media-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  gap: 8px;
+  color: #737373;
+}
+
+.admin-app .review-center-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.78);
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.admin-app .review-center-lightbox__nav.is-prev {
+  left: max(16px, calc(50% - 520px));
+}
+
+.admin-app .review-center-lightbox__nav.is-next {
+  right: max(16px, calc(50% - 520px));
+}
+
+.admin-app .review-center-lightbox__nav:hover {
+  background: rgba(40, 40, 40, 0.92);
+}
+
+.admin-app .review-center-lightbox__empty {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  color: #737373;
+  font-size: 13px;
+}
+
+/* ===== Asset library lightbox (放大弹窗定制化覆盖) ===== */
+.admin-app .asset-library-lightbox {
+  z-index: 9999;
+}
+
+.admin-app .asset-library-lightbox.is-merged {
+  padding: 20px 24px;
+}
+
+.admin-app .asset-library-lightbox.is-merged .review-center-lightbox__nav.is-prev {
+  left: max(12px, calc(50% - 560px));
+}
+
+.admin-app .asset-library-lightbox.is-merged .review-center-lightbox__nav.is-next {
+  right: max(12px, calc(50% - 560px));
+}
+
+.admin-app .asset-library-lightbox__panel {
+  width: min(1040px, 100%);
+  max-height: min(92vh, 900px);
+  gap: 0;
+  padding: 12px 12px 0;
+  overflow: hidden;
+}
+
+.admin-app .asset-library-lightbox__panel > header {
+  padding: 0 4px 10px;
+}
+
+.admin-app .asset-library-lightbox__media {
+  min-height: 0;
+  flex: 1 1 auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #0a0a0a;
+}
+
+.admin-app .asset-library-lightbox__media > img,
+.admin-app .asset-library-lightbox__media > video,
+.admin-app .asset-library-lightbox__media > .asset-media-placeholder,
+.admin-app .asset-library-lightbox__media > .review-center-lightbox__empty {
+  display: block;
+  width: 100%;
+  max-height: min(52vh, 520px);
+  object-fit: contain;
+  background: #0a0a0a;
+}
+
+.admin-app .asset-library-lightbox__panel .asset-version-info {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--admin-line);
+  background: transparent;
+}
+
+.admin-app .asset-library-lightbox__panel .asset-version-filmstrip {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--admin-line);
+  background: #0d0d0d;
+  margin: 0 -12px;
+  padding: 12px 14px 14px;
+}
+
+/* ===== Empty note (空状态提示) ===== */
+.admin-app .draft-empty-note {
+  color: var(--admin-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 24px 12px;
+  text-align: center;
+}
+
+/* ===========================================================================
+ * Light theme overrides (浅色主题覆盖)
+ * 仅覆盖深色主题中硬编码的深色值；媒体查看面（影院式）保持深色。
+ * ============================================================================ */
+/* 媒体占位符：浅色背景 */
+.admin-app[data-theme="light"] .asset-media-placeholder {
+  background: #e9edf0;
+  color: #7c8792;
+}
+
+.admin-app[data-theme="light"] .asset-media-placeholder.audio {
+  background: #e7edf1;
+  color: #425c70;
+}
+
+.admin-app[data-theme="light"] .asset-library-preview {
+  background: #e9edf0;
+}
+
+.admin-app[data-theme="light"] .asset-library-card.character .asset-library-preview,
+.admin-app[data-theme="light"] .asset-library-card.scene .asset-library-preview,
+.admin-app[data-theme="light"] .asset-library-card.prop .asset-library-preview,
+.admin-app[data-theme="light"] .asset-library-card.audio .asset-library-preview,
+.admin-app[data-theme="light"] .asset-library-card.video .asset-library-preview {
+  background: #e9edf0;
+}
+
+/* 状态徽标：浅色主题使用琥珀/茶色系（与深色主题的绿色系区分） */
+.admin-app[data-theme="light"] .asset-library-card .asset-current-badge,
+.admin-app[data-theme="light"] .asset-library-card .asset-version-count {
+  background: #f8e7b9;
+  color: #704b0b;
+}
+
+.admin-app[data-theme="light"] .asset-library-card .asset-current-badge.fallback {
+  background: #dcece8;
+  color: #185e53;
+}
+
+.admin-app[data-theme="light"] .asset-library-code-badge {
+  background: #f8e7b9;
+  color: #704b0b;
+}
+
+.admin-app[data-theme="light"] .asset-version-info__status {
+  background: #f8e7b9;
+  color: #704b0b;
+}
+
+.admin-app[data-theme="light"] .asset-version-filmstrip__badge {
+  background: #f8e7b9;
+  color: #704b0b;
+}
+
+/* 版本信息条：浅色背景 */
+.admin-app[data-theme="light"] .asset-version-info {
+  background: #f4f5f7;
+}
+
+.admin-app[data-theme="light"] .asset-version-filmstrip {
+  background: #e9edf0;
+}
+
+.admin-app[data-theme="light"] .asset-version-filmstrip > button {
+  background: #ffffff;
+}
+
+.admin-app[data-theme="light"] .asset-version-filmstrip__thumb {
+  background: #e9edf0;
+}
+
+.admin-app[data-theme="light"] .asset-library-lightbox__media,
+.admin-app[data-theme="light"] .asset-library-lightbox__media > img,
+.admin-app[data-theme="light"] .asset-library-lightbox__media > video,
+.admin-app[data-theme="light"] .asset-library-lightbox__media > .asset-media-placeholder,
+.admin-app[data-theme="light"] .asset-library-lightbox__media > .review-center-lightbox__empty {
+  /* 媒体查看面：浅色主题下保持深色影院式背景 */
+  background: #0a0a0a;
+}
+
+.admin-app[data-theme="light"] .asset-library-lightbox__panel .asset-version-filmstrip {
+  background: #e9edf0;
+}
+
+/* 版本按钮：浅色主题使用浅底深字 */
+.admin-app[data-theme="light"] .asset-version-button {
+  background: #f7f9fa;
+  border-color: #d9e2e0;
+  color: #176b5e;
+}
+
+.admin-app[data-theme="light"] .asset-version-button:hover {
+  background: #e9f3f0;
+}
+
+/* 缩略图翻页器：浅色主题保持深色覆盖层（叠在媒体上，深色合理） */
+.admin-app[data-theme="light"] .asset-preview-pagination {
+  background: rgba(22, 29, 36, 0.88);
+  color: #fff;
+}
+
+.admin-app[data-theme="light"] .asset-preview-pagination button {
+  color: #fff;
+}
+
+/* 卡片圆点分隔符：浅色主题使用深色圆点 */
+.admin-app[data-theme="light"] .asset-library-card-meta > i {
+  background: rgba(15, 23, 42, 0.28);
+}
+
+/* 标签徽标背景：浅色主题下 rgba(255,255,255,*) 无效，改为深色透明 */
+.admin-app[data-theme="light"] .asset-library-card-heading > div span {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.admin-app[data-theme="light"] .asset-company-tabs button strong {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+/* ===== Lightbox 浅色主题覆盖 ===== */
+.admin-app[data-theme="light"] .review-center-lightbox__backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__panel {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__panel > header strong {
+  color: #1f2937;
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__count {
+  color: #6b7280;
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__panel > header button {
+  background: rgba(15, 23, 42, 0.08);
+  color: #374151;
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__panel > header button:hover {
+  background: rgba(15, 23, 42, 0.14);
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__nav {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #374151;
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__nav:hover {
+  background: rgba(243, 244, 246, 0.98);
+}
+
+.admin-app[data-theme="light"] .review-center-lightbox__empty {
+  color: #9ca3af;
+}

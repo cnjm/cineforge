@@ -1,0 +1,136 @@
+{
+  "schema_version": "production_style_catalog.v1",
+  "catalog_version": "2026.07.11",
+  "max_modifiers": 2,
+  "primary_styles": [
+    {
+      "style_id": "live_action_cinematic",
+      "label": "真人影视",
+      "medium": "live_action",
+      "rendering": "cinematic_realism",
+      "realism_level": "realistic",
+      "description": "电影级真人影像，真实人体比例、肤质、服装材质和摄影机光学表现。",
+      "prompt_tokens": ["真人影视", "电影级写实摄影", "真实人体比例", "自然肤质", "真实材质", "cinematic realism"],
+      "negative_tokens": ["卡通渲染", "漫画描边", "塑料皮肤", "游戏建模感"],
+      "provider_mappings": {}
+    },
+    {
+      "style_id": "anime_2d_cel",
+      "label": "2D日漫",
+      "medium": "2d_comic",
+      "rendering": "cel_shading",
+      "realism_level": "stylized",
+      "description": "日式二维动画语言，清晰描边、赛璐璐上色和大色块阴影。",
+      "prompt_tokens": ["2D日漫", "赛璐璐上色", "清晰黑色描边", "大色块阴影", "稳定动画角色设计"],
+      "negative_tokens": ["真人照片", "3D塑料质感", "厚重油画笔触"],
+      "provider_mappings": {"aliyun": {"style": 0}}
+    },
+    {
+      "style_id": "comic_2d_american",
+      "label": "2D美漫",
+      "medium": "2d_comic",
+      "rendering": "bold_ink_paint",
+      "realism_level": "stylized",
+      "description": "美式漫画语言，粗线条、厚涂阴影、明确结构和高对比色彩。",
+      "prompt_tokens": ["2D美漫", "粗线条墨稿", "美式厚涂", "高对比阴影", "高饱和色彩"],
+      "negative_tokens": ["真人照片", "柔弱日漫线条", "低对比灰雾"],
+      "provider_mappings": {"aliyun": {"style": 1}}
+    },
+    {
+      "style_id": "anime_2_5d",
+      "label": "2.5D日系",
+      "medium": "2_5d_comic",
+      "rendering": "anime_with_volumetric_light",
+      "realism_level": "semi_realistic",
+      "description": "日系角色设计结合立体光影、空间层次和三渲二材质。",
+      "prompt_tokens": ["2.5D日系", "三渲二", "日系角色设计", "立体体积光", "半写实材质"],
+      "negative_tokens": ["纯真人照片", "扁平无体积", "廉价游戏建模"],
+      "provider_mappings": {}
+    },
+    {
+      "style_id": "rounded_3d_cinematic_cartoon",
+      "label": "圆润电影级3D卡通",
+      "medium": "3d_animation",
+      "rendering": "rounded_cinematic_cartoon",
+      "realism_level": "stylized",
+      "description": "圆润角色造型、克制夸张比例、哑光材质和电影级动画布光。",
+      "prompt_tokens": ["圆润电影级3D卡通", "圆润角色造型", "哑光材质", "柔和电影布光", "高品质动画渲染"],
+      "negative_tokens": ["真人照片", "品牌角色复刻", "廉价塑料玩具感"],
+      "provider_mappings": {"aliyun": {"style": 3}}
+    },
+    {
+      "style_id": "animation_3d_standard",
+      "label": "3D动画",
+      "medium": "3d_animation",
+      "rendering": "standard_cg",
+      "realism_level": "semi_realistic",
+      "description": "标准高质量CG动画，结构清晰、材质稳定、适合连续镜头生产。",
+      "prompt_tokens": ["3D动画", "高质量CG渲染", "稳定角色模型", "清晰材质层次", "电影级灯光"],
+      "negative_tokens": ["真人照片", "低模穿帮", "材质闪烁", "塑料皮肤"],
+      "provider_mappings": {}
+    },
+    {
+      "style_id": "cgi_3d_photoreal",
+      "label": "3D写实CGI",
+      "medium": "3d_animation",
+      "rendering": "photoreal_cgi",
+      "realism_level": "realistic",
+      "description": "照片级CGI，真实光照、物理材质和高精度人物与环境建模。",
+      "prompt_tokens": ["3D写实CGI", "照片级渲染", "物理正确材质", "真实全局光照", "高精度建模"],
+      "negative_tokens": ["卡通比例", "低模", "塑料材质", "不真实光照"],
+      "provider_mappings": {}
+    },
+    {
+      "style_id": "guofeng_3d_cinematic",
+      "label": "3D国风漫画",
+      "medium": "3d_animation",
+      "rendering": "guofeng_cinematic_cg",
+      "realism_level": "semi_realistic",
+      "description": "国风动画电影质感，中式美术语言、半写实人物和电影级CG光影。",
+      "prompt_tokens": ["3D国风漫画", "国风动画电影质感", "半写实东方人物", "中式美术语言", "电影级CG光影"],
+      "negative_tokens": ["现代西式建筑误用", "日式服装误用", "廉价网游质感"],
+      "provider_mappings": {"aliyun": {"style": 4}}
+    },
+    {
+      "style_id": "ink_2d_chinese",
+      "label": "2D国风水墨",
+      "medium": "2d_comic",
+      "rendering": "chinese_ink_wash",
+      "realism_level": "stylized",
+      "description": "中国水墨表现，墨色浓淡、笔触气韵和有控制的画面留白。",
+      "prompt_tokens": ["2D国风水墨", "中国水墨", "墨色浓淡", "写意笔触", "画面留白"],
+      "negative_tokens": ["西式油画厚涂", "霓虹塑料质感", "过度写实摄影"],
+      "provider_mappings": {"aliyun": {"style": 7}}
+    }
+  ],
+  "modifiers": [
+    {"modifier_id": "flat_vector_2d", "label": "2D扁平矢量", "group": "technique", "prompt_tokens": ["扁平矢量插画", "几何形状", "纯色块"]},
+    {"modifier_id": "children_picture_book", "label": "2D儿童绘本", "group": "technique", "prompt_tokens": ["儿童绘本", "柔和手绘", "亲和造型"]},
+    {"modifier_id": "monochrome_line_art", "label": "2D黑白线稿", "group": "technique", "prompt_tokens": ["黑白线稿", "清晰墨线", "无彩色填充"]},
+    {"modifier_id": "low_poly_3d", "label": "3D低多边形", "group": "technique", "prompt_tokens": ["低多边形3D", "几何切面", "简化材质"]},
+    {"modifier_id": "clay_3d", "label": "3D黏土", "group": "technique", "prompt_tokens": ["黏土动画质感", "手工塑形纹理", "柔和哑光材质"]},
+    {"modifier_id": "voxel_3d", "label": "3D体素", "group": "technique", "prompt_tokens": ["体素艺术", "方块化造型", "像素体积"]},
+    {"modifier_id": "oil_paint", "label": "油画", "group": "technique", "prompt_tokens": ["油画笔触", "颜料堆叠", "画布肌理"]},
+    {"modifier_id": "watercolor", "label": "水彩", "group": "technique", "prompt_tokens": ["水彩晕染", "透明叠色", "纸张纹理"]},
+    {"modifier_id": "pencil_sketch", "label": "素描", "group": "technique", "prompt_tokens": ["铅笔素描", "排线明暗", "纸面纹理"]},
+    {"modifier_id": "ukiyo_e", "label": "浮世绘", "group": "technique", "prompt_tokens": ["浮世绘版画", "平面构图", "传统纹样"]},
+    {"modifier_id": "pixel_art", "label": "像素艺术", "group": "technique", "prompt_tokens": ["像素艺术", "有限色板", "清晰像素边缘"]},
+    {"modifier_id": "cyberpunk", "label": "赛博朋克", "group": "art_direction", "prompt_tokens": ["赛博朋克", "高科技低生活", "克制霓虹照明"]},
+    {"modifier_id": "steampunk", "label": "蒸汽朋克", "group": "art_direction", "prompt_tokens": ["蒸汽朋克", "黄铜机械", "工业时代结构"]},
+    {"modifier_id": "stop_motion", "label": "定格动画", "group": "motion_medium", "prompt_tokens": ["定格动画", "逐帧手工质感", "实体模型布光"]},
+    {"modifier_id": "shadow_puppetry", "label": "皮影戏", "group": "cultural_technique", "prompt_tokens": ["中国皮影戏", "半透明皮革剪影", "平面幕布光影"]},
+    {"modifier_id": "paper_cut", "label": "剪纸", "group": "cultural_technique", "prompt_tokens": ["中国剪纸", "镂空纸艺", "平面民间纹样"], "provider_mappings": {"aliyun": {"style": 5}}}
+  ],
+  "provider_presets": {
+    "aliyun": {
+      "0": "日式漫画",
+      "1": "美式漫画",
+      "2": "清新漫画",
+      "3": "3D卡通",
+      "4": "国风卡通",
+      "5": "纸艺风格",
+      "6": "简易插画",
+      "7": "国风水墨"
+    }
+  }
+}

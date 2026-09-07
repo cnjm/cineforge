@@ -1,0 +1,882 @@
+/* Module: team-members | 团队成员模块（迁移自 legacy-ui admin-dashboard.css L11314-12097）
+ * 作用域：所有规则均以 .admin-app 前缀限定，避免与现有样式冲突。
+ * 主题：默认深色（与 .admin-app 默认 data-theme="dark" 对齐）；浅色主题通过
+ *       .admin-app[data-theme="light"] 选择器覆盖。
+ * 依赖基类（已在 pipeline.css / 其他全局样式中定义，本文件不重复）：
+ *   .admin-dash / .admin-kpi-row / .admin-kpi / .admin-dash-grid / .admin-side-stack /
+ *   .admin-panel / .admin-section-head / .admin-btn-solid / .admin-projects-search /
+ *   .admin-record-list / .admin-tag--* / .admin-panel__desc / .admin-panel--todo /
+ *   .admin-panel--split
+ * 共享搜索框样式（.admin-team-search / .admin-team-project-search 的 input 透明背景）
+ * 已在 design-tokens.css 的 :is() 分组中处理，本文件不重复。
+ */
+
+/* ===== Team members page (对齐总控看板 + 企业成员表) ===== */
+.admin-app .admin-team-page {
+  min-width: 0;
+}
+
+.admin-app .admin-team-grid {
+  align-items: start;
+}
+
+.admin-app .admin-team-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--admin-gutter);
+  min-width: 0;
+}
+
+.admin-app .admin-team-main > .admin-team-head {
+  margin-bottom: 0;
+}
+
+.admin-app .admin-team-main > .admin-team-head .admin-btn-solid {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-table-panel {
+  padding: 0;
+  overflow: visible;
+}
+
+.admin-app .admin-team-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.admin-app .admin-team-toolbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.admin-app .admin-team-toolbar__count {
+  color: var(--admin-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-toolbar__select {
+  min-height: 34px;
+  padding: 0 28px 0 10px;
+  border-radius: 4px;
+  border: 1px solid var(--admin-line);
+  background: var(--admin-panel-2);
+  color: var(--admin-text);
+  font-size: 12px;
+  outline: none;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--admin-muted) 50%),
+    linear-gradient(135deg, var(--admin-muted) 50%, transparent 50%);
+  background-position: calc(100% - 12px) calc(50% - 2px), calc(100% - 7px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.admin-app .admin-team-toolbar .outline-select--team-role {
+  width: 180px;
+  flex: 0 0 180px;
+}
+
+.admin-app .admin-team-toolbar .outline-select--team-role .outline-select__trigger {
+  min-height: 36px;
+}
+
+.admin-app .admin-team-project-search {
+  min-width: 240px;
+  width: 240px;
+}
+
+.admin-app .admin-team-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  min-width: 200px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid var(--admin-search-border);
+  background: var(--admin-search-bg);
+  color: var(--admin-muted);
+  font-weight: 400;
+}
+
+.admin-app .admin-team-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--admin-text);
+  font-size: 12px;
+  font-weight: 400;
+  outline: none;
+}
+
+.admin-app .admin-team-search input::placeholder {
+  color: #3F3F3F;
+  font-weight: 400;
+  opacity: 1;
+}
+
+.admin-app .admin-team-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+  align-items: end;
+}
+
+.admin-app .admin-team-form--inline {
+  margin: 0;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--admin-line);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-app[data-theme="light"] .admin-team-form--inline {
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.admin-app .admin-team-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.admin-app .admin-team-field span {
+  font-size: 12px;
+  color: var(--admin-muted);
+}
+
+.admin-app .admin-team-field input,
+.admin-app .admin-team-field select {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 1px solid var(--admin-line);
+  background: #101010;
+  color: var(--admin-text);
+  font-size: 13px;
+  outline: none;
+}
+
+.admin-app[data-theme="light"] .admin-team-field input,
+.admin-app[data-theme="light"] .admin-team-field select {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  color: #111827;
+}
+
+.admin-app .admin-team-field input:focus,
+.admin-app .admin-team-field select:focus {
+  border-color: #FFFFFF;
+}
+
+.admin-app .admin-team-form__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.admin-app .admin-team-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.admin-app .admin-team-member-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--admin-line);
+  background: #1A1A1A;
+}
+
+.admin-app[data-theme="light"] .admin-team-member-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.admin-app .admin-team-member-card__avatar {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff9a44 0%, #fc6076 100%);
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 700;
+  flex: 0 0 auto;
+  user-select: none;
+  overflow: hidden;
+}
+
+.admin-app .admin-team-member-card__avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.admin-app .admin-team-member-card__avatar > span {
+  line-height: 1;
+}
+
+.admin-app .admin-team-member-card__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-app .admin-team-member-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.admin-app .admin-team-member-card__body strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--admin-text-strong);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-member-card__roles {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+
+.admin-app .admin-team-member-card__body .admin-team-member-card__identity-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 7px;
+  border-radius: 4px;
+  background: rgba(28, 109, 249, 0.12);
+  color: var(--admin-accent);
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-member-card__body .admin-team-member-card__identity-tag.is-admin {
+  background: rgba(167, 139, 250, 0.14);
+  color: #b69cff;
+}
+
+.admin-app .admin-team-member-card__body .admin-team-member-card__identity-tag.is-script_editor {
+  background: rgba(56, 189, 248, 0.14);
+  color: #7dd3fc;
+}
+
+.admin-app .admin-team-member-card__body .admin-team-member-card__identity-tag.is-artist {
+  background: rgba(201, 162, 39, 0.14);
+  color: #e2c56a;
+}
+
+.admin-app .admin-team-member-card__body .admin-team-member-card__identity-tag.is-editor {
+  background: rgba(61, 214, 140, 0.12);
+  color: var(--admin-lime);
+}
+
+.admin-app .admin-team-member-card__body span {
+  font-size: 12px;
+  color: var(--admin-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-empty {
+  padding: 28px 8px;
+  text-align: left;
+}
+
+.admin-app .admin-team-empty strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.admin-app .admin-team-row-menu {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.admin-app .admin-team-row-menu__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--admin-muted);
+  cursor: pointer;
+}
+
+.admin-app .admin-team-row-menu__btn:hover {
+  background: var(--admin-hover);
+  color: var(--admin-text);
+}
+
+.admin-app .admin-team-row-menu__pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 5;
+  min-width: 120px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--admin-line);
+  background: var(--admin-panel);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-app .admin-team-row-menu__pop button {
+  border: 0;
+  background: transparent;
+  color: var(--admin-text-strong);
+  text-align: left;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-app[data-theme="light"] .admin-team-row-menu__pop button {
+  color: var(--admin-text-strong);
+}
+
+.admin-app .admin-team-row-menu__pop button:hover:not(:disabled) {
+  background: var(--admin-hover);
+}
+
+.admin-app .admin-team-row-menu__pop button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.admin-app .admin-team-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 18px 14px;
+  border-top: 1px solid var(--admin-line);
+  color: var(--admin-muted);
+  font-size: 12px;
+}
+
+.admin-app .admin-team-pager__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-app .admin-team-pager__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-app .admin-team-pager__btn,
+.admin-app .admin-team-pager__page {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid var(--admin-line);
+  background: transparent;
+  color: var(--admin-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.admin-app .admin-team-pager__btn:hover:not(:disabled),
+.admin-app .admin-team-pager__page:hover {
+  color: var(--admin-text);
+  background: var(--admin-hover);
+}
+
+.admin-app .admin-team-pager__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.admin-app .admin-team-pager__page.is-active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: 600;
+}
+
+.admin-app[data-theme="light"] .admin-team-pager__page.is-active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.admin-app .admin-team-pager__ellipsis {
+  min-width: 16px;
+  text-align: center;
+  color: var(--admin-aux);
+}
+
+/* ===== Add member modal ===== */
+.admin-app .admin-team-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.admin-app .admin-team-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+
+.admin-app .admin-team-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(480px, 100%);
+  border-radius: 12px;
+  border: 1px solid var(--admin-line);
+  background: #171717;
+  color: #fff;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.admin-app[data-theme="light"] .admin-team-modal__panel {
+  background: #ffffff;
+  color: #111827;
+}
+
+.admin-app .admin-team-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 8px;
+}
+
+.admin-app .admin-team-modal__head h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.admin-app .admin-team-modal__close {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--admin-muted);
+  cursor: pointer;
+}
+
+.admin-app .admin-team-modal__close:hover {
+  background: var(--admin-hover);
+  color: var(--admin-text);
+}
+
+.admin-app .admin-team-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 20px 20px;
+}
+
+.admin-app .admin-team-modal__row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-app .admin-team-modal__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--admin-text);
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-modal__label i {
+  color: var(--admin-danger);
+  font-style: normal;
+  margin-right: 2px;
+}
+
+.admin-app .admin-team-modal__row input,
+.admin-app .admin-team-modal__row select {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 1px solid var(--admin-line);
+  background: #101010;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
+.admin-app[data-theme="light"] .admin-team-modal__row input,
+.admin-app[data-theme="light"] .admin-team-modal__row select {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  color: #111827;
+}
+
+.admin-app .admin-team-modal__row input:focus,
+.admin-app .admin-team-modal__row select:focus {
+  border-color: #FFFFFF;
+}
+
+.admin-app .admin-team-modal__row input::placeholder {
+  color: var(--admin-aux);
+}
+
+.admin-app .admin-team-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 4px;
+}
+
+.admin-app .admin-team-modal__btn {
+  min-height: 34px;
+  padding: 0 18px;
+  border-radius: 6px;
+  border: 1px solid var(--admin-line);
+  background: transparent;
+  color: var(--admin-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.admin-app .admin-team-modal__btn:hover {
+  background: var(--admin-hover);
+}
+
+.admin-app .admin-team-modal__btn--primary {
+  border-color: transparent;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+}
+
+.admin-app .admin-team-modal__btn--primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.admin-app[data-theme="light"] .admin-team-modal__btn--primary {
+  background: #111111;
+  color: #ffffff;
+}
+
+.admin-app[data-theme="light"] .admin-team-modal__btn--primary:hover {
+  background: #000000;
+}
+
+.admin-app .admin-team-modal__btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .admin-app .admin-team-modal__row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+.admin-app .admin-team-perm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.admin-app .admin-team-perm-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--admin-line);
+}
+
+.admin-app .admin-team-perm-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.admin-app .admin-team-perm-list__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-app .admin-team-perm-list__main strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-text-strong);
+}
+
+.admin-app .admin-team-perm-list__main span {
+  font-size: 11px;
+  color: var(--admin-text);
+  line-height: 1.4;
+}
+
+.admin-app .admin-team-role-list {
+  margin-top: 20px;
+}
+
+.admin-app .admin-team-role-list li {
+  min-height: 30px;
+  align-items: center;
+}
+
+.admin-app .admin-team-role-list .admin-record-list__main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-app .admin-team-role-list .admin-tag {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  margin-top: 0;
+}
+
+.admin-app .admin-team-role-list .admin-tag--blue {
+  color: var(--admin-accent);
+  background: rgba(28, 109, 249, 0.12);
+}
+
+.admin-app .admin-team-role-list .admin-tag--violet {
+  color: #b69cff;
+  background: rgba(167, 139, 250, 0.14);
+}
+
+.admin-app .admin-team-role-list .admin-tag--cyan {
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.admin-app .admin-team-role-list .admin-tag--warn {
+  color: #e2c56a;
+  background: rgba(201, 162, 39, 0.14);
+}
+
+.admin-app .admin-team-role-list .admin-tag--done {
+  color: var(--admin-lime);
+  background: rgba(61, 214, 140, 0.12);
+}
+
+.admin-app .admin-team-switch {
+  position: relative;
+  display: inline-flex;
+  width: 36px;
+  height: 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.admin-app .admin-team-switch input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.admin-app .admin-team-switch i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.15s ease;
+}
+
+.admin-app[data-theme="light"] .admin-team-switch i {
+  background: rgba(15, 23, 42, 0.14);
+}
+
+.admin-app .admin-team-switch i::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+
+.admin-app .admin-team-switch input:checked + i {
+  background: var(--admin-accent);
+}
+
+.admin-app .admin-team-switch input:checked + i::after {
+  transform: translateX(16px);
+}
+
+@media (max-width: 1100px) {
+  .admin-app .admin-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-app .admin-team-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-app .admin-team-search {
+    min-width: 100%;
+  }
+
+  .admin-app .admin-team-project-search,
+  .admin-app .admin-team-toolbar .outline-select--team-role {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+/* ===== Inactive member card（停用账号视觉态） ===== */
+.admin-app .admin-team-member-card.is-inactive {
+  opacity: 0.62;
+}
+
+.admin-app .admin-team-member-card.is-inactive .admin-team-member-card__avatar {
+  filter: grayscale(0.6);
+}
+
+.admin-app .admin-team-member-card__identity-tag.is-inactive-tag {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--admin-muted);
+}
+
+.admin-app[data-theme="light"] .admin-team-member-card__identity-tag.is-inactive-tag {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+/* ===== Reset password result modal（临时密码展示弹窗，复用 .admin-team-modal 基底） ===== */
+.admin-app .admin-team-reset-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--admin-text);
+}
+
+.admin-app .admin-team-reset-desc strong {
+  font-weight: 600;
+}
+
+.admin-app .admin-team-reset-pwd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px dashed var(--admin-line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.admin-app[data-theme="light"] .admin-team-reset-pwd {
+  background: rgba(15, 23, 42, 0.03);
+}
+
+.admin-app .admin-team-reset-pwd__label {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--admin-muted);
+  white-space: nowrap;
+}
+
+.admin-app .admin-team-reset-pwd__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--admin-text);
+  word-break: break-all;
+}
+
+.admin-app .admin-team-reset-pwd .admin-team-modal__btn {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 520px) {
+  .admin-app .admin-team-reset-pwd {
+    flex-wrap: wrap;
+  }
+
+  .admin-app .admin-team-reset-pwd__value {
+    flex: 1 1 100%;
+  }
+}

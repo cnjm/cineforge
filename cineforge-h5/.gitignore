@@ -1,0 +1,15 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+
+# 环境变量（.env.example / .env.development / .env.production 为公开配置，可入库；
+# 仅忽略本地个人变体）
+.env
+.env.local
+.env.*.local
+
+# 日志与系统
+*.log
+.DS_Store

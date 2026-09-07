@@ -1,0 +1,49 @@
+# CineForge server 开发基线配置（config.yaml 是默认源，CINEFORGE_* 环境变量可覆盖）
+# 生产环境建议全部用 env 注入（见 .env.example），本文件保持占位/默认值。
+
+http:
+  addr: "0.0.0.0:8080"
+grpc:
+  addr: "0.0.0.0:8090"
+
+database:
+  # 单库 cineforge；开发用 docker compose 起的 postgres，生产填 ECS 上数据库 DSN
+  dsn: ""
+
+auth:
+  # 登录令牌配置（占位；生产必须用 CINEFORGE_* env 注入可信 secret，空值时登录签发返回 503）
+  secret: ""                          # access_token HMAC 密钥
+  session_ttl_seconds: 28800          # 会话时长（秒），上限 8h
+  tapcanvas_jwt_secret: ""            # tapcanvas_token HS256 密钥
+  platform_jwt_private_key: ""        # platform_token RS256 PEM 私钥（支持 \n 转义）
+  platform_jwt_kid: ""                # platform_token header kid
+
+minio:
+  endpoint: "localhost:9000"
+  bucket: "cineforge-assets"   # 占位，未开通
+  access_key: ""
+  secret_key: ""
+  use_ssl: false
+
+domains:
+  server: "cine-forge-server.cnjm.top"
+  web: "cine-forge.cnjm.top"
+
+hermes:
+  addr: "http://localhost:8642"
+
+redis:
+  # Celery broker / 项目事件 channel（P4d run-events pub/sub）；agent 子模块共用同一 Redis
+  url: "redis://localhost:6379/0"
+
+agent:
+  addr: "http://localhost:8091"
+
+# 开发账号自动种子（仅本地 dev；生产保持 enabled: false，改用 CINEFORGE_DEVSEED_ENABLED）
+devseed:
+  enabled: false
+  phone: ""
+  password: ""
+  username: "dev"
+  display_name: "开发账号"
+  role: "admin"

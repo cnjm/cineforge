@@ -1,0 +1,119 @@
+﻿/* Module: review-grid | Extracted from styles.css | Lines 2601-2718 */
+
+.review-grid,
+.role-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.review-item,
+.role-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.review-item strong,
+.role-card strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.review-item p,
+.role-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+.draft-detail-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  margin-top: 14px;
+}
+
+.draft-module {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.draft-module-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.draft-module-strip span {
+  background: #fff7fb;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 7px 10px;
+}
+
+.style-modifier-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.import-project-toolbar {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin: -4px 0 16px;
+  padding: 0 0 14px;
+}
+
+.import-project-toolbar > div:first-child {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+}
+
+.import-project-toolbar > div:first-child > strong {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compact-actions {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+
+.import-project-grid {
+  gap: 16px;
+}
+
+.import-project-form {
+  display: grid;
+  gap: 16px;
+}
+
+.episode-import-form {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.episode-import-identity {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.episode-import-form .import-upload-zone {
+  min-height: 300px;
+}
